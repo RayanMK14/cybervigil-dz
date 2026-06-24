@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberVigil DZ | Testez votre Cyber-Conscience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #08132a;
+            color: #d9e2ff;
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(60, 73, 78, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: #3cd7ff;
+        }
+
+        .cyber-glow-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-glow-btn:hover {
+            box-shadow: 0px 0px 15px rgba(0, 212, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .cyber-glow-btn:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        .quiz-option {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quiz-option:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+
+        .quiz-option.selected {
+            background: #00d4ff;
+            color: #003642;
+            border-color: #00d4ff;
+        }
+
+        .progress-fill {
+            transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+            background: linear-gradient(90deg, #00d4ff 0%, #a8e8ff 100%);
+        }
+
+        .hidden { display: none; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#39475f",
+                        "on-background": "#d9e2ff",
+                        "inverse-surface": "#d9e2ff",
+                        "outline-variant": "#3c494e",
+                        "on-secondary": "#233148",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary": "#d2dfff",
+                        "on-tertiary": "#20304f",
+                        "on-primary": "#003642",
+                        "on-tertiary-container": "#405071",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "primary-container": "#00d4ff",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed": "#001f27",
+                        "surface": "#08132a",
+                        "on-secondary-container": "#abb9d6",
+                        "tertiary-fixed-dim": "#b6c6ed",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#a8e8ff",
+                        "on-surface": "#d9e2ff",
+                        "secondary": "#b9c7e4",
+                        "on-secondary-fixed": "#0d1c32",
+                        "secondary-container": "#3c4962",
+                        "surface-container-lowest": "#030d25",
+                        "tertiary-container": "#b3c3e9",
+                        "surface-dim": "#08132a",
+                        "inverse-primary": "#00677e",
+                        "primary-fixed-dim": "#3cd7ff",
+                        "background": "#08132a",
+                        "outline": "#859398",
+                        "primary-fixed": "#b4ebff",
+                        "on-primary-container": "#00586b",
+                        "surface-bright": "#2f3952",
+                        "on-tertiary-fixed-variant": "#374767",
+                        "on-surface-variant": "#bbc9cf",
+                        "surface-container-highest": "#2a344d",
+                        "inverse-on-surface": "#263049",
+                        "surface-tint": "#3cd7ff",
+                        "surface-container": "#151f37",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "on-tertiary-fixed": "#091b39",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#1f2942",
+                        "surface-container-low": "#101b33",
+                        "on-error": "#690005",
+                        "surface-variant": "#2a344d",
+                        "secondary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-xl-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm h-20">
+<nav class="flex justify-between items-center px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">CyberVigil DZ</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="accueil.html">Accueil</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="articles.html">Articles</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="quiz_.html">Quiz</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="propos_.html">À propos</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md cyber-glow-btn">
+                Se Connecter
+            </button>
+</nav>
+</header>
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden">
+
+<!-- Section Title -->
+<section class="text-center mb-12">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4">Testez votre Cyber-Conscience</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+    Mesurez votre niveau de vigilance face aux menaces numériques modernes et apprenez les bons réflexes pour protéger vos données.
+</p>
+</section>
+
+<!-- Quiz Container -->
+<div class="max-w-3xl mx-auto" id="quiz-container">
+  <div class="glass-card p-8 rounded-xl shadow-2xl">
+    <!-- Progress -->
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-label-md text-label-md text-primary uppercase tracking-widest">Question <span id="current-q-num">1</span>/10</span>
+      <span class="font-label-md text-label-md text-on-surface-variant" id="progress-text">10% complété</span>
+    </div>
+    <div class="w-full h-2 bg-surface-container-highest rounded-full mb-8 overflow-hidden">
+      <div class="h-full bg-primary rounded-full transition-all duration-500" id="progress-bar" style="width:10%"></div>
+    </div>
+    <!-- Question -->
+    <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-8" id="question-text"></p>
+    <!-- Options -->
+    <div class="space-y-4 mb-8" id="options-container"></div>
+    <!-- Feedback -->
+    <div id="feedback" class="hidden p-4 rounded-lg mb-6 font-body-md text-body-md"></div>
+    <!-- Nav -->
+    <div class="flex justify-end pt-4 border-t border-outline-variant/30">
+      <button id="next-btn" onclick="nextQuestion()" class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-full cyber-glow-btn flex items-center gap-2 hidden">
+        Suivant <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Results (hidden initially) -->
+<div id="results-container" class="hidden max-w-3xl mx-auto">
+  <div class="glass-card p-8 rounded-xl shadow-2xl text-center">
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-8">Votre Score de Vigilance</h3>
+    <div class="relative w-48 h-48 flex items-center justify-center mx-auto mb-8">
+      <svg class="w-full h-full -rotate-90" viewBox="0 0 192 192">
+        <circle cx="96" cy="96" r="80" fill="transparent" stroke="currentColor" stroke-width="12" class="text-surface-container-highest"/>
+        <circle cx="96" cy="96" r="80" fill="transparent" stroke="currentColor" stroke-width="12" class="text-primary" stroke-dasharray="502.6" id="score-circle" stroke-dashoffset="502.6"/>
+      </svg>
+      <div class="absolute flex flex-col items-center">
+        <span class="font-headline-xl text-headline-xl text-primary" id="score-text">0/10</span>
+        <span class="font-label-md text-label-md text-on-surface-variant" id="score-label">-</span>
+      </div>
+    </div>
+    <div class="space-y-4 mb-8 text-left">
+      <div class="glass-card p-5 rounded-lg border-l-4 border-l-primary">
+        <h5 class="font-label-md text-label-md text-primary mb-2">Résultat</h5>
+        <p class="font-body-md text-body-md text-on-surface-variant" id="result-message"></p>
+      </div>
+    </div>
+    <button onclick="restartQuiz()" class="border border-outline-variant text-on-surface font-label-md text-label-md px-8 py-3 rounded-full hover:bg-surface-container-high transition-colors">
+      Recommencer
+    </button>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "Que faire si vous recevez un email suspect d'une banque vous demandant de confirmer votre mot de passe via un lien ?",
+    options: ["Cliquer sur le lien pour vérifier.", "Répondre à l'email en demandant des explications.", "Signaler l'email comme phishing et le supprimer.", "Changer mon mot de passe en utilisant le lien fourni."],
+    correct: 2
+  },
+  {
+    q: "Quel est le minimum recommandé pour un mot de passe sécurisé ?",
+    options: ["6 caractères avec votre prénom.", "8 caractères avec des chiffres.", "12 caractères avec majuscules, chiffres et symboles.", "Votre date de naissance."],
+    correct: 2
+  },
+  {
+    q: "Vous connectez-vous à un Wi-Fi public gratuit pour accéder à votre banque en ligne ?",
+    options: ["Oui, c'est pratique.", "Oui, si le réseau a un mot de passe.", "Non, jamais — je peux être espionné.", "Oui, si le site est en HTTPS."],
+    correct: 2
+  },
+  {
+    q: "Un inconnu vous envoie une clé USB trouvée 'par hasard' devant votre bureau. Que faites-vous ?",
+    options: ["Je la branche pour voir ce qu'il y a dedans.", "Je la donne à un collègue pour vérifier.", "Je la remets au service informatique sans la brancher.", "Je la jette à la poubelle directement."],
+    correct: 2
+  },
+  {
+    q: "Quelle est la meilleure façon de gérer plusieurs mots de passe ?",
+    options: ["Utiliser le même mot de passe partout.", "Les noter sur un papier collé à l'écran.", "Utiliser un gestionnaire de mots de passe sécurisé.", "Les enregistrer dans un fichier texte sur le bureau."],
+    correct: 2
+  },
+  {
+    q: "Vous recevez un SMS vous disant que vous avez gagné un iPhone. Que faites-vous ?",
+    options: ["Je clique sur le lien pour réclamer mon prix.", "J'envoie mes coordonnées.", "J'ignore et supprime le message.", "Je partage avec mes amis."],
+    correct: 2
+  },
+  {
+    q: "Comment vérifier qu'un site web est sécurisé avant d'entrer vos données ?",
+    options: ["Le site a un beau design.", "L'URL commence par https:// et affiche un cadenas.", "Le site est connu.", "Il n'y a pas de publicités."],
+    correct: 1
+  },
+  {
+    q: "Que signifie l'authentification à deux facteurs (2FA) ?",
+    options: ["Deux mots de passe différents.", "Un code envoyé par SMS en plus du mot de passe.", "Se connecter depuis deux appareils.", "Changer son mot de passe deux fois par an."],
+    correct: 1
+  },
+  {
+    q: "Votre ordinateur se comporte étrangement après avoir ouvert une pièce jointe. Que faites-vous ?",
+    options: ["Je continue à travailler normalement.", "Je l'éteins et le rallume.", "Je déconnecte le réseau et contacte le support IT immédiatement.", "J'installe un antivirus gratuit trouvé sur internet."],
+    correct: 2
+  },
+  {
+    q: "Quelle information ne faut-il JAMAIS partager sur les réseaux sociaux ?",
+    options: ["Votre ville de résidence.", "Vos photos de vacances.", "Votre numéro de carte bancaire ou mot de passe.", "Votre métier."],
+    correct: 2
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('current-q-num').textContent = current + 1;
+  document.getElementById('progress-text').textContent = Math.round(((current+1)/10)*100) + '% complété';
+  document.getElementById('progress-bar').style.width = ((current+1)/10*100) + '%';
+  document.getElementById('question-text').textContent = q.q;
+  document.getElementById('feedback').classList.add('hidden');
+  document.getElementById('next-btn').classList.add('hidden');
+
+  const container = document.getElementById('options-container');
+  container.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option w-full p-5 text-left border border-outline-variant/50 rounded-lg font-body-md text-body-md flex items-center justify-between group hover:border-primary transition-all';
+    btn.innerHTML = '<span>' + opt + '</span><span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>';
+    btn.onclick = () => selectAnswer(i, btn);
+    container.appendChild(btn);
+  });
+}
+
+function selectAnswer(idx, btn) {
+  if (answered) return;
+  answered = true;
+  const correct = questions[current].correct;
+  const allBtns = document.querySelectorAll('.quiz-option');
+  
+  allBtns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.style.borderColor = '#00ff88';
+    if (i === idx && idx !== correct) b.style.borderColor = '#ff4444';
+  });
+
+  const feedback = document.getElementById('feedback');
+  feedback.classList.remove('hidden');
+  if (idx === correct) {
+    score++;
+    feedback.className = 'p-4 rounded-lg mb-6 font-body-md text-body-md bg-green-900/30 text-green-400 border border-green-500/30';
+    feedback.textContent = '✓ Bonne réponse !';
+  } else {
+    feedback.className = 'p-4 rounded-lg mb-6 font-body-md text-body-md bg-red-900/30 text-red-400 border border-red-500/30';
+    feedback.textContent = '✗ Mauvaise réponse. La bonne réponse est : ' + questions[current].options[correct];
+  }
+  document.getElementById('next-btn').classList.remove('hidden');
+  if (current === 9) document.getElementById('next-btn').innerHTML = 'Voir mes résultats <span class="material-symbols-outlined">emoji_events</span>';
+}
+
+function nextQuestion() {
+  if (current < 9) {
+    current++;
+    loadQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  document.getElementById('quiz-container').classList.add('hidden');
+  document.getElementById('results-container').classList.remove('hidden');
+  document.getElementById('score-text').textContent = score + '/10';
+  const pct = score / 10;
+  const offset = 502.6 - (502.6 * pct);
+  document.getElementById('score-circle').style.strokeDashoffset = offset;
+  let label, msg;
+  if (score >= 8) { label = 'Expert'; msg = 'Excellent ! Vous avez une très bonne connaissance des menaces cybernétiques. Continuez à rester vigilant.'; }
+  else if (score >= 5) { label = 'Intermédiaire'; msg = 'Pas mal ! Vous avez de bonnes bases mais quelques lacunes. Consultez nos articles pour vous améliorer.'; }
+  else { label = 'Débutant'; msg = 'Vous avez encore beaucoup à apprendre. Visitez notre section Articles pour découvrir les bonnes pratiques.'; }
+  document.getElementById('score-label').textContent = label;
+  document.getElementById('result-message').textContent = msg;
+}
+
+function restartQuiz() {
+  current = 0; score = 0;
+  document.getElementById('results-container').classList.add('hidden');
+  document.getElementById('quiz-container').classList.remove('hidden');
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low mt-12 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto text-center md:text-left">
+<div>
+<div class="font-headline-md text-headline-md text-primary mb-4">CyberVigil DZ</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    L'initiative nationale pour un internet plus sûr en Algérie. Éducation, prévention et action.
+                </p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-primary uppercase mb-2">Liens Rapides</h4>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-md text-body-md" href="accueil.html">Accueil</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-md text-body-md" href="articles.html">Articles</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-md text-body-md" href="quiz_.html">Quiz</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-md text-body-md" href="propos_.html">À propos</a>
+</div>
+<div class="flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    © 2024 CyberVigil Algérie. Protéger notre espace numérique.
+                </p>
+<div class="flex justify-center md:justify-start gap-4 mt-6">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined">policy</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction Script
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all
+                document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+                // Add to current
+                this.classList.add('selected');
+            });
+        });
+
+        // Background decorative effect
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardX = (e.clientX - rect.left) / rect.width;
+                const cardY = (e.clientY - rect.top) / rect.height;
+                
+                if(cardX > 0 && cardX < 1 && cardY > 0 && cardY < 1) {
+                    card.style.borderColor = `rgba(0, 212, 255, ${0.3 + cardX * 0.4})`;
+                }
+            });
+        });
+    </script>
+</body></html>

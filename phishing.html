@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Les Attaques de Phishing | CyberVigil DZ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#39475f",
+                    "on-background": "#d9e2ff",
+                    "inverse-surface": "#d9e2ff",
+                    "outline-variant": "#3c494e",
+                    "on-secondary": "#233148",
+                    "tertiary-fixed": "#d8e2ff",
+                    "tertiary": "#d2dfff",
+                    "on-tertiary": "#20304f",
+                    "on-primary": "#003642",
+                    "on-tertiary-container": "#405071",
+                    "secondary-fixed-dim": "#b9c7e4",
+                    "primary-container": "#00d4ff",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#001f27",
+                    "surface": "#08132a",
+                    "on-secondary-container": "#abb9d6",
+                    "tertiary-fixed-dim": "#b6c6ed",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#a8e8ff",
+                    "on-surface": "#d9e2ff",
+                    "secondary": "#b9c7e4",
+                    "on-secondary-fixed": "#0d1c32",
+                    "secondary-container": "#3c4962",
+                    "surface-container-lowest": "#030d25",
+                    "tertiary-container": "#b3c3e9",
+                    "surface-dim": "#08132a",
+                    "inverse-primary": "#00677e",
+                    "primary-fixed-dim": "#3cd7ff",
+                    "background": "#08132a",
+                    "outline": "#859398",
+                    "primary-fixed": "#b4ebff",
+                    "on-primary-container": "#00586b",
+                    "surface-bright": "#2f3952",
+                    "on-tertiary-fixed-variant": "#374767",
+                    "on-surface-variant": "#bbc9cf",
+                    "surface-container-highest": "#2a344d",
+                    "inverse-on-surface": "#263049",
+                    "surface-tint": "#3cd7ff",
+                    "surface-container": "#151f37",
+                    "on-primary-fixed-variant": "#004e5f",
+                    "on-tertiary-fixed": "#091b39",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#1f2942",
+                    "surface-container-low": "#101b33",
+                    "on-error": "#690005",
+                    "surface-variant": "#2a344d",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #08132a;
+            color: #d9e2ff;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 20px rgba(168, 232, 255, 0.15);
+        }
+        .article-card-gradient {
+            background: linear-gradient(180deg, rgba(17, 34, 64, 0.8) 0%, rgba(8, 19, 42, 1) 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">CyberVigil DZ</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="accueil.html">Accueil</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="articles.html">Articles</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="quiz_.html">Quiz</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="propos_.html">À propos</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="relative group hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary outline-none transition-all w-48 focus:w-64" placeholder="Rechercher..." type="text"/>
+</div>
+<button class="font-label-md text-label-md px-6 py-2.5 rounded-full bg-primary text-on-primary font-bold hover:shadow-[0_0_15px_rgba(168,232,255,0.5)] transition-all active:scale-95">Se Connecter</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Breadcrumbs -->
+<nav class="flex items-center space-x-2 text-on-surface-variant mb-12 font-label-md text-label-md">
+<a class="hover:text-primary transition-colors" href="articles.html">Articles</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-primary">Phishing</span>
+</nav>
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6 leading-tight">
+                        Les Attaques de Phishing : <span class="text-primary">Comprendre et Déjouer les Pièges</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl">
+                        Le phishing (ou hameçonnage) reste la cybermenace la plus répandue en Algérie. Apprenez à identifier les techniques des fraudeurs pour protéger vos données personnelles et bancaires.
+                    </p>
+<div class="flex items-center space-x-4">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a cybersecurity expert, middle-aged male, wearing a smart casual dark suit, with a blurred high-tech office background including glowing screens and digital maps. The lighting is dramatic with cool blue tones and sharp focus on the face to convey authority and trust. CyberVigil aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfmCWBDt7cWnMgkrrXvHv_M3aIkZBW3uOMnYeVfu9w2mmSEQvi6fmxptwYTCa2pBAL3Unovf22zqhVwm8UsJxdXPKbAUFFqwFyNYNWCw6sBt0pxqXNSl1Nv2TcnghVqs0wka1QmQwUIzheSP0z12mRuyFGCmIsrtzKL6A2BFpqJIl_QIy6r84XEzhU5VZkODtubHKTZ9sjgEudA2z1hvefiKKorVeCKYLvfURfpA1rXuBJ2KeAprZpwLe4tXst4mZWQDPuKGWpVjQh"/>
+</div>
+</div>
+<div class="text-sm">
+<p class="text-on-surface font-bold">Équipe CyberVigil</p>
+<p class="text-on-surface-variant">Publié le 24 Mai 2024 • 8 min de lecture</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="absolute -inset-4 bg-primary/10 rounded-xl blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
+<div class="relative overflow-hidden rounded-xl border border-outline-variant/30 shadow-2xl">
+<img class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" data-alt="A high-tech digital illustration of a digital hook catching a glowing envelope in a dark, midnight navy cybernetic ocean. Streams of binary code flow through the water as vibrant electric blue light illuminates the scene. The atmosphere is tense and futuristic, symbolizing a phishing attack in progress with cinematic lighting and deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTLfisyr8-aQyYVHd00QuHE7SOkDMlZm8Axwgv_W54dx4fGnMLoSWsWiRbte2MQHJtTltPI2DItnam82yblaj8zj8mTaE1e8PgD8yk-7VWjkOCRtSKQLKXWchB_X2Bv63y39CLp-IYSSuQckTz1gnLTRusi6LXQxN2LDHhCQP7OueYE7xPGEtcAxb0ur2spAHUVLtjV9h3TTRsOBreebUO8eeM3ZxDeNX_tu6mK8bmmOrrouHzOBu3YZ-veywnM-P8C0ToWs0Y_592"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Article Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Sidebar / Quick Nav -->
+<aside class="hidden lg:block lg:col-span-3 sticky top-32 h-fit">
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<h3 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Dans cet article</h3>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" href="#definition">
+<span class="w-1 h-1 bg-primary rounded-full"></span> Qu'est-ce que le Phishing ?</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" href="#detection">
+<span class="w-1 h-1 bg-primary rounded-full"></span> Identifier les Signaux</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" href="#protection">
+<span class="w-1 h-1 bg-primary rounded-full"></span> Guide de Protection</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" href="#action">
+<span class="w-1 h-1 bg-primary rounded-full"></span> Que faire en cas d'attaque ?</a></li>
+</ul>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<p class="text-xs text-on-surface-variant mb-4">Besoin d'aide immédiate ?</p>
+<button class="w-full py-3 bg-surface-container-highest text-primary font-bold rounded-lg hover:bg-primary hover:text-on-primary transition-all text-sm border border-primary/30">Signaler un incident</button>
+</div>
+</div>
+</aside>
+<!-- Main Text -->
+<article class="lg:col-span-9 max-w-3xl">
+<section class="mb-16" id="definition">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 flex items-center gap-4">
+<span class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">info</span>
+</span>
+                        Qu'est-ce que le Phishing ?
+                    </h2>
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                            Le <strong class="text-primary">phishing</strong>, ou hameçonnage, est une technique de cyberattaque où un criminel se fait passer pour une entité de confiance (banque, administration algérienne, service de livraison) pour vous soutirer des informations confidentielles.
+                        </p>
+<p>
+                            Ces attaques ne ciblent pas vos systèmes informatiques directement, mais votre <strong class="text-on-surface">confiance</strong>. En utilisant des tactiques de pression psychologique, ils vous poussent à agir dans la précipitation.
+                        </p>
+<div class="bg-surface-container border-l-4 border-primary p-6 rounded-r-xl italic">
+                            "En 2023, plus de 65% des incidents de sécurité signalés en Algérie ont débuté par un simple email ou SMS de phishing."
+                        </div>
+</div>
+</section>
+<section class="mb-16" id="detection">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 flex items-center gap-4">
+<span class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</span>
+                        Comment repérer le piège ?
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Les cybercriminels sont de plus en plus sophistiqués, mais certains indices ne trompent jamais. Soyez attentifs à ces points clés :
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">alternate_email</span>
+<h4 class="text-on-surface font-bold mb-2">Expéditeur suspect</h4>
+<p class="text-sm text-on-surface-variant">L'adresse email semble officielle mais contient une faute de frappe légère (ex: @info-baridi.dz au lieu de @poste.dz).</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">priority_high</span>
+<h4 class="text-on-surface font-bold mb-2">Urgence injustifiée</h4>
+<p class="text-sm text-on-surface-variant">On vous demande d'agir "immédiatement" sous peine de blocage de compte ou d'amende imminente.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">link</span>
+<h4 class="text-on-surface font-bold mb-2">Liens masqués</h4>
+<p class="text-sm text-on-surface-variant">En survolant le lien avec votre souris, l'adresse de destination réelle n'a rien à voir avec le texte affiché.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">translate</span>
+<h4 class="text-on-surface font-bold mb-2">Français ou Arabe approximatif</h4>
+<p class="text-sm text-on-surface-variant">Des tournures de phrases étranges ou des erreurs de traduction flagrantes indiquent souvent une fraude automatisée.</p>
+</div>
+</div>
+</section>
+<section class="mb-16" id="protection">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 flex items-center gap-4">
+<span class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">shield</span>
+</span>
+                        Se protéger efficacement
+                    </h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 mt-1">1</div>
+<div>
+<h4 class="text-on-surface font-bold text-lg mb-1">Activez l'authentification à deux facteurs (2FA)</h4>
+<p class="text-on-surface-variant">C'est votre rempart le plus solide. Même si un hacker obtient votre mot de passe, il ne pourra pas accéder à votre compte sans le code reçu sur votre téléphone.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 mt-1">2</div>
+<div>
+<h4 class="text-on-surface font-bold text-lg mb-1">Vérifiez la source manuellement</h4>
+<p class="text-on-surface-variant">Ne cliquez jamais sur un lien dans un email suspect. Allez directement sur le site officiel en tapant l'adresse dans votre navigateur.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 mt-1">3</div>
+<div>
+<h4 class="text-on-surface font-bold text-lg mb-1">Gardez vos logiciels à jour</h4>
+<p class="text-on-surface-variant">Les navigateurs modernes possèdent des filtres anti-phishing intégrés qui bloquent les sites connus pour être malveillants.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Alert Card -->
+<div class="mb-16 p-8 rounded-2xl bg-surface-container-highest border border-primary/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="relative z-10">
+<code class="text-xs font-mono text-primary mb-2 block uppercase tracking-widest">ALERTE_SECURITE_DZ</code>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Votre score de vigilance</h3>
+<p class="text-on-surface-variant mb-6 max-w-lg">Voulez-vous tester vos capacités à détecter un email de phishing ? Notre quiz interactif simule des attaques réelles pour vous entraîner.</p>
+<button class="px-8 py-3 bg-primary text-on-primary rounded-full font-bold hover:shadow-[0_0_20px_rgba(168,232,255,0.4)] transition-all">Lancer le Quiz</button>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-outline-variant/30 gap-6">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">thumb_up</span>
+<span>Utile (124)</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">share</span>
+<span>Partager</span>
+</button>
+</div>
+<a class="flex items-center gap-2 text-primary font-bold group hover:gap-4 transition-all" href="#">
+<span>Retour aux articles</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto text-center md:text-left">
+<div>
+<div class="font-headline-md text-headline-md text-primary mb-4">CyberVigil Algeria</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    L'initiative nationale pour la sensibilisation à la cybersécurité. Informer, éduquer et protéger.
+                </p>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-bold text-on-surface mb-2">Ressources</h4>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim underline transition-all" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim underline transition-all" href="#">Mission</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim underline transition-all" href="#">Confidentialité</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim underline transition-all" href="#">Mentions Légales</a>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-2">Suivez-nous</h4>
+<div class="flex justify-center md:justify-start space-x-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</a>
+</div>
+<p class="mt-8 text-xs text-on-surface-variant opacity-60">
+                    © 2024 CyberVigil Algérie. Protéger notre espace numérique.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple visibility observer for active state in sidebar
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('aside nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary');
+                link.querySelector('span')?.classList.add('opacity-0');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-primary');
+                    link.querySelector('span')?.classList.remove('opacity-0');
+                }
+            });
+        });
+    </script>
+</body></html>
